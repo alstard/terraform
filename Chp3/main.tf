@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" terraform_state {
-  bucket = "terraform_uar-state"
+  bucket = "atd_terraform_uar-state"
 
   versioning {
     enabled = true
