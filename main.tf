@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-2"
+  region = "eu-west-1"
 }
 
 output "elb_dns_name" {
@@ -24,6 +24,9 @@ resource "aws_launch_configuration" "example" {
 
   lifecycle {
     create_before_destroy = true
+
+
+    
   }
 }
 
