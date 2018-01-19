@@ -4,20 +4,44 @@ provider "aws" {
   region      = "${var.region}"
 }
 
-resource "aws_eip" "ip" {
-  instance = "${aws_instance.PSDDO1.id}"
+resource "aws_instance" "DPEATD1" {
+  ami             = "${lookup(var.amis, var.region)}"
+  instance_type   = "t2.micro"
+  security_groups = ["SG-DPEATD-DMZ"]
+  key_name        = "atd-key-pair"
+
 }
 
-resource "aws_instance" "PSDDO1" {
-  # [Amazon Linux] ami           = "ami-d834aba1"
-  ami           = "${lookup(var.amis, var.region)}"
-  instance_type = "t2.micro"
+resource "aws_security_group" "SG-DPEATD-DMZ" {
+  name = "SG-DPEATD-DMZ"
+  description = "Allow http and ssh from everywhere"
 
-  # provisioner "local-exec" {
-  #   command = "echo ${aws_instance.PSDDO1.public_ip} > ip_address.txt"
-  # }
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags {
+    Name = "SG-DPEATD-DMZ"
+  }
 }
 
 output "ip" {
-  value = "${aws_eip.ip.public_ip}"
+  value = "${aws_instance.DPEATD1.public_ip}"
 }
