@@ -1,0 +1,105 @@
+I, [2018-01-23T16:48:50.546005 #68680]  INFO -- Kitchen: -----> Starting Kitchen (v1.20.0)
+W, [2018-01-23T16:48:50.847345 #68680]  WARN -- Kitchen: Running command `terraform version`
+I, [2018-01-23T16:48:50.890664 #68680]  INFO -- Kitchen: Terraform v0.11.2
+I, [2018-01-23T16:48:50.949227 #68680]  INFO -- Kitchen: + provider.docker v0.1.1
+I, [2018-01-23T16:48:50.949313 #68680]  INFO -- Kitchen: 
+W, [2018-01-23T16:48:50.964605 #68680]  WARN -- Kitchen: Terraform v0.11.2 is supported
+I, [2018-01-23T16:48:51.879979 #68680]  INFO -- Kitchen: -----> Verifying <example-ubuntu>...
+E, [2018-01-23T16:48:52.098376 #68680] ERROR -- Kitchen: ------Exception-------
+E, [2018-01-23T16:48:52.098424 #68680] ERROR -- Kitchen: Class: Kitchen::ActionFailed
+E, [2018-01-23T16:48:52.098450 #68680] ERROR -- Kitchen: Message: 1 actions failed.
+>>>>>>     Verify failed on instance <example-ubuntu>.  Please see .kitchen/logs/example-ubuntu.log for more details
+E, [2018-01-23T16:48:52.098472 #68680] ERROR -- Kitchen: ----------------------
+E, [2018-01-23T16:48:52.098493 #68680] ERROR -- Kitchen: ------Backtrace-------
+E, [2018-01-23T16:48:52.098517 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command.rb:183:in `report_errors'
+E, [2018-01-23T16:48:52.098538 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command.rb:174:in `run_action'
+E, [2018-01-23T16:48:52.098565 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command/action.rb:36:in `block in call'
+E, [2018-01-23T16:48:52.098585 #68680] ERROR -- Kitchen: /Users/atd/.rbenv/versions/2.4.1/lib/ruby/2.4.0/benchmark.rb:293:in `measure'
+E, [2018-01-23T16:48:52.098605 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command/action.rb:34:in `call'
+E, [2018-01-23T16:48:52.098624 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/cli.rb:52:in `perform'
+E, [2018-01-23T16:48:52.098644 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/cli.rb:193:in `block (2 levels) in <class:CLI>'
+E, [2018-01-23T16:48:52.098663 #68680] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.4.0/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
+E, [2018-01-23T16:48:52.098691 #68680] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.4.0/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2018-01-23T16:48:52.098711 #68680] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.4.0/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
+E, [2018-01-23T16:48:52.098735 #68680] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.4.0/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
+E, [2018-01-23T16:48:52.098755 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/bin/kitchen:13:in `block in <top (required)>'
+E, [2018-01-23T16:48:52.098781 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/errors.rb:171:in `with_friendly_errors'
+E, [2018-01-23T16:48:52.098801 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/bin/kitchen:13:in `<top (required)>'
+E, [2018-01-23T16:48:52.098826 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/bin/kitchen:22:in `load'
+E, [2018-01-23T16:48:52.098845 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/bin/kitchen:22:in `<top (required)>'
+E, [2018-01-23T16:48:52.098864 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/lib/bundler/cli/exec.rb:75:in `load'
+E, [2018-01-23T16:48:52.098889 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/lib/bundler/cli/exec.rb:75:in `kernel_load'
+E, [2018-01-23T16:48:52.098910 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/lib/bundler/cli/exec.rb:28:in `run'
+E, [2018-01-23T16:48:52.098929 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/lib/bundler/cli.rb:424:in `exec'
+E, [2018-01-23T16:48:52.098970 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+E, [2018-01-23T16:48:52.098992 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/lib/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2018-01-23T16:48:52.099011 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/lib/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+E, [2018-01-23T16:48:52.099031 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/lib/bundler/cli.rb:27:in `dispatch'
+E, [2018-01-23T16:48:52.099050 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/lib/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+E, [2018-01-23T16:48:52.099073 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/lib/bundler/cli.rb:18:in `start'
+E, [2018-01-23T16:48:52.099093 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/exe/bundle:30:in `block in <top (required)>'
+E, [2018-01-23T16:48:52.099112 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/lib/bundler/friendly_errors.rb:122:in `with_friendly_errors'
+E, [2018-01-23T16:48:52.099131 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/bundler-1.16.1/exe/bundle:22:in `<top (required)>'
+E, [2018-01-23T16:48:52.099149 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/bin/bundle:22:in `load'
+E, [2018-01-23T16:48:52.099167 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/bin/bundle:22:in `<main>'
+E, [2018-01-23T16:48:52.099186 #68680] ERROR -- Kitchen: ----End Backtrace-----
+E, [2018-01-23T16:48:52.099204 #68680] ERROR -- Kitchen: -Composite Exception--
+E, [2018-01-23T16:48:52.099222 #68680] ERROR -- Kitchen: Class: Kitchen::InstanceFailure
+E, [2018-01-23T16:48:52.099241 #68680] ERROR -- Kitchen: Message: Verify failed on instance <example-ubuntu>.  Please see .kitchen/logs/example-ubuntu.log for more details
+E, [2018-01-23T16:48:52.099260 #68680] ERROR -- Kitchen: ----------------------
+E, [2018-01-23T16:48:52.099282 #68680] ERROR -- Kitchen: ------Backtrace-------
+E, [2018-01-23T16:48:52.099301 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-inspec-0.22.0/lib/kitchen/verifier/inspec.rb:97:in `call'
+E, [2018-01-23T16:48:52.099320 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:113:in `block (2 levels) in call'
+E, [2018-01-23T16:48:52.099339 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:73:in `block in each_resolved_hostname_and_group'
+E, [2018-01-23T16:48:52.099358 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:69:in `each'
+E, [2018-01-23T16:48:52.099376 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:69:in `each_resolved_hostname_and_group'
+E, [2018-01-23T16:48:52.099395 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:44:in `block in call'
+E, [2018-01-23T16:48:52.099414 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:43:in `each'
+E, [2018-01-23T16:48:52.099435 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:43:in `call'
+E, [2018-01-23T16:48:52.099460 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:98:in `block in call'
+E, [2018-01-23T16:48:52.099478 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:115:in `tap'
+E, [2018-01-23T16:48:52.099514 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:115:in `call'
+E, [2018-01-23T16:48:52.099534 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:443:in `block in verify_action'
+E, [2018-01-23T16:48:52.099553 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:536:in `synchronize_or_call'
+E, [2018-01-23T16:48:52.099571 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:498:in `block in action'
+E, [2018-01-23T16:48:52.099590 #68680] ERROR -- Kitchen: /Users/atd/.rbenv/versions/2.4.1/lib/ruby/2.4.0/benchmark.rb:293:in `measure'
+E, [2018-01-23T16:48:52.099608 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:497:in `action'
+E, [2018-01-23T16:48:52.099628 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:435:in `verify_action'
+E, [2018-01-23T16:48:52.099656 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:368:in `block in transition_to'
+E, [2018-01-23T16:48:52.099675 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:367:in `each'
+E, [2018-01-23T16:48:52.099694 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:367:in `transition_to'
+E, [2018-01-23T16:48:52.099719 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:157:in `verify'
+E, [2018-01-23T16:48:52.099738 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command.rb:197:in `public_send'
+E, [2018-01-23T16:48:52.099756 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command.rb:197:in `run_action_in_thread'
+E, [2018-01-23T16:48:52.099774 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command.rb:169:in `block (2 levels) in run_action'
+E, [2018-01-23T16:48:52.099792 #68680] ERROR -- Kitchen: ----End Backtrace-----
+E, [2018-01-23T16:48:52.099810 #68680] ERROR -- Kitchen: ---Nested Exception---
+E, [2018-01-23T16:48:52.099827 #68680] ERROR -- Kitchen: Class: Kitchen::ActionFailed
+E, [2018-01-23T16:48:52.099845 #68680] ERROR -- Kitchen: Message: Inspec Runner returns 1
+E, [2018-01-23T16:48:52.099863 #68680] ERROR -- Kitchen: ----------------------
+E, [2018-01-23T16:48:52.099881 #68680] ERROR -- Kitchen: ------Backtrace-------
+E, [2018-01-23T16:48:52.099899 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-inspec-0.22.0/lib/kitchen/verifier/inspec.rb:97:in `call'
+E, [2018-01-23T16:48:52.099918 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:113:in `block (2 levels) in call'
+E, [2018-01-23T16:48:52.099945 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:73:in `block in each_resolved_hostname_and_group'
+E, [2018-01-23T16:48:52.099964 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:69:in `each'
+E, [2018-01-23T16:48:52.099983 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:69:in `each_resolved_hostname_and_group'
+E, [2018-01-23T16:48:52.100001 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:44:in `block in call'
+E, [2018-01-23T16:48:52.100035 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:43:in `each'
+E, [2018-01-23T16:48:52.100055 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:43:in `call'
+E, [2018-01-23T16:48:52.100074 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:98:in `block in call'
+E, [2018-01-23T16:48:52.100092 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:115:in `tap'
+E, [2018-01-23T16:48:52.100116 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:115:in `call'
+E, [2018-01-23T16:48:52.100134 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:443:in `block in verify_action'
+E, [2018-01-23T16:48:52.100155 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:536:in `synchronize_or_call'
+E, [2018-01-23T16:48:52.100179 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:498:in `block in action'
+E, [2018-01-23T16:48:52.100198 #68680] ERROR -- Kitchen: /Users/atd/.rbenv/versions/2.4.1/lib/ruby/2.4.0/benchmark.rb:293:in `measure'
+E, [2018-01-23T16:48:52.100216 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:497:in `action'
+E, [2018-01-23T16:48:52.100234 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:435:in `verify_action'
+E, [2018-01-23T16:48:52.100252 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:368:in `block in transition_to'
+E, [2018-01-23T16:48:52.100270 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:367:in `each'
+E, [2018-01-23T16:48:52.100288 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:367:in `transition_to'
+E, [2018-01-23T16:48:52.100306 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:157:in `verify'
+E, [2018-01-23T16:48:52.100324 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command.rb:197:in `public_send'
+E, [2018-01-23T16:48:52.100342 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command.rb:197:in `run_action_in_thread'
+E, [2018-01-23T16:48:52.100366 #68680] ERROR -- Kitchen: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command.rb:169:in `block (2 levels) in run_action'
+E, [2018-01-23T16:48:52.100385 #68680] ERROR -- Kitchen: ----End Backtrace-----

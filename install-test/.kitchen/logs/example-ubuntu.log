@@ -1,0 +1,34 @@
+I, [2018-01-23T16:48:51.880059 #68680]  INFO -- example-ubuntu: -----> Verifying <example-ubuntu>...
+I, [2018-01-23T16:48:51.880622 #68680]  INFO -- example-ubuntu: Verifying host 'localhost' of group 'container'
+I, [2018-01-23T16:48:52.022310 #68680]  INFO -- example-ubuntu: Loaded default 
+E, [2018-01-23T16:48:52.095701 #68680] ERROR -- example-ubuntu: Verify failed on instance <example-ubuntu>.
+E, [2018-01-23T16:48:52.095827 #68680] ERROR -- example-ubuntu: ------Exception-------
+E, [2018-01-23T16:48:52.095856 #68680] ERROR -- example-ubuntu: Class: Kitchen::ActionFailed
+E, [2018-01-23T16:48:52.095881 #68680] ERROR -- example-ubuntu: Message: Inspec Runner returns 1
+E, [2018-01-23T16:48:52.095901 #68680] ERROR -- example-ubuntu: ----------------------
+E, [2018-01-23T16:48:52.095919 #68680] ERROR -- example-ubuntu: ------Backtrace-------
+E, [2018-01-23T16:48:52.095936 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-inspec-0.22.0/lib/kitchen/verifier/inspec.rb:97:in `call'
+E, [2018-01-23T16:48:52.095955 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:113:in `block (2 levels) in call'
+E, [2018-01-23T16:48:52.095978 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:73:in `block in each_resolved_hostname_and_group'
+E, [2018-01-23T16:48:52.095998 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:69:in `each'
+E, [2018-01-23T16:48:52.096016 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:69:in `each_resolved_hostname_and_group'
+E, [2018-01-23T16:48:52.096035 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:44:in `block in call'
+E, [2018-01-23T16:48:52.096052 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:43:in `each'
+E, [2018-01-23T16:48:52.096070 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform/enumerate_groups_and_hostnames.rb:43:in `call'
+E, [2018-01-23T16:48:52.096088 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:98:in `block in call'
+E, [2018-01-23T16:48:52.096105 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:115:in `tap'
+E, [2018-01-23T16:48:52.096123 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/kitchen-terraform-3.1.0/lib/kitchen/verifier/terraform.rb:115:in `call'
+E, [2018-01-23T16:48:52.096141 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:443:in `block in verify_action'
+E, [2018-01-23T16:48:52.096159 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:536:in `synchronize_or_call'
+E, [2018-01-23T16:48:52.096179 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:498:in `block in action'
+E, [2018-01-23T16:48:52.096198 #68680] ERROR -- example-ubuntu: /Users/atd/.rbenv/versions/2.4.1/lib/ruby/2.4.0/benchmark.rb:293:in `measure'
+E, [2018-01-23T16:48:52.096225 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:497:in `action'
+E, [2018-01-23T16:48:52.096243 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:435:in `verify_action'
+E, [2018-01-23T16:48:52.096263 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:368:in `block in transition_to'
+E, [2018-01-23T16:48:52.096399 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:367:in `each'
+E, [2018-01-23T16:48:52.096436 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:367:in `transition_to'
+E, [2018-01-23T16:48:52.096470 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/instance.rb:157:in `verify'
+E, [2018-01-23T16:48:52.096492 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command.rb:197:in `public_send'
+E, [2018-01-23T16:48:52.096511 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command.rb:197:in `run_action_in_thread'
+E, [2018-01-23T16:48:52.096529 #68680] ERROR -- example-ubuntu: /Users/atd/.chefdk/gem/ruby/2.4.0/gems/test-kitchen-1.20.0/lib/kitchen/command.rb:169:in `block (2 levels) in run_action'
+E, [2018-01-23T16:48:52.096547 #68680] ERROR -- example-ubuntu: ----End Backtrace-----
