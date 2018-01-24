@@ -18,10 +18,9 @@ verifier:
       hostnames: hostnames
     - name: localhost
       controls:
-        - state_files 
+        - state_files
     
 platforms:
   - name: ubuntu
-
 suites:
   - name: example

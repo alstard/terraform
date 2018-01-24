@@ -3,3 +3,6 @@
 *.tfstate.backup
 .tfPSDDOvars
 Gemfile.lock
+.kitchen/
+./install-test/.kitchen/*
+tf_aws_cluster/terraform.tfvars
