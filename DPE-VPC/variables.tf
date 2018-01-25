@@ -38,7 +38,7 @@ variable "Subnet-Private-AzA-CIDR" {
 }
 
 variable "KeyPairName" {
-  default = ""
+  default = "atd-dpe-ew2-keypair"
   description = "SSH Key to use for the EC2 Instances"
 }
 
