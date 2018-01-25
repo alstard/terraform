@@ -12,3 +12,5 @@ This repo contains examples and tests concerning terraform code and it's integra
 * DPE Concourse - http://concourse.platform-engineering.com:8080/teams/team11/
 
 * Kitchen Setup - https://newcontext-oss.github.io/kitchen-terraform/tutorials/docker_provider.html
+
+* Complete VPC Setup - https://linuxacademy.com/howtoguides/posts/show/topic/13922-a-complete-aws-environment-with-terraform
