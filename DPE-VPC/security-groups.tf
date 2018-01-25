@@ -41,7 +41,7 @@ resource "aws_security_group" "ATD-DB" {
     to_port = 5432
     protocol = "TCP"
     # Restrict access to the FrontEnd
-    security_groups = ["aws_security_group.ATD-FrontEnd"]
+    security_groups = ["${aws_security_group.ATD-FrontEnd.id}"]
   }
 
   /* FOR DEBUG ONLY - CAN BE DELETED WHEN WORKING */
@@ -51,7 +51,7 @@ resource "aws_security_group" "ATD-DB" {
     protocol = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  /* FOR DEBUG ONLY - CAN BE DELETED WHEN WORKING */
+  /* END DEBUG */
   
   egress {
     from_port = 0

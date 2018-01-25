@@ -30,7 +30,7 @@ resource "aws_network_acl" "allow-all" {
     Name = "NACL - OPEN TO ALL"
   }
 }
-resource "route_table" "public" {
+resource "aws_route_table" "public" {
   vpc_id = "${aws_vpc.ATD-DPE-VPC.id}"
   tags {
     Name = "Public"
@@ -40,7 +40,7 @@ resource "route_table" "public" {
     gateway_id = "${aws_internet_gateway.gw1.id}"
   }
 }
-resource "route_table" "private" {
+resource "aws_route_table" "private" {
   vpc_id = "${aws_vpc.ATD-DPE-VPC.id}"
   tags {
     Name = "Private"
