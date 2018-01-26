@@ -1,8 +1,9 @@
 resource "aws_subnet" "PublicAZA" {
-  vpc_id = "${aws_vpc.ATD-DPE-VPC.id}"
+  vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
   cidr_block = "${var.Subnet-Public-AzA-CIDR}"
   tags {
     Name = "PublicAZA"
+    Purpose = "Ansible Testing"
   }
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
 }
@@ -13,10 +14,11 @@ resource "aws_route_table_association" "PublicAZA" {
 }
 
 resource "aws_subnet" "PrivateAZA" {
-  vpc_id = "${aws_vpc.ATD-DPE-VPC.id}"
+  vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
   cidr_block = "${var.Subnet-Private-AzA-CIDR}"
   tags {
     Name = "PrivateAZA"
+    Purpose = "Ansible Testing"
   }
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
 }

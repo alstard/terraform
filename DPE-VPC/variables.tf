@@ -12,14 +12,23 @@ variable "ami-ubuntu" {
   description = "Added Ubuntu AMI ID for all eu-west regions"
 }
 
+variable "ami-bastion" {
+  type = "map"
+  default = {
+    "eu-west-1" = "ami-a136a9d8" # Ireland
+    "eu-west-2" = "ami-87312ae3" # London
+    "eu-west-3" = "ami-0fe35572" # Paris
+  }
+}
+
 variable "aws_access_key" {
   default = ""
-  description = "AWS DPE Access Key for ATD"
+  description = "AWS DPE Access Key"
 }
 
 variable "aws_secret_key" {
   default = ""
-  description = "AWS DPE Secret Key for ATD"
+  description = "AWS DPE Secret Key"
 }
 
 variable "VPC-fullcidr" {
@@ -46,3 +55,13 @@ variable "DNSZoneName" {
   default = "atddpe.local"
   description = "Internal DNS Name to utilise for the VPC"
 }
+
+variable jumpbox_name {
+  default = "jumpbox1"
+  description = "Name for the jumpbox security group and instance"
+}
+
+# variable bastion_name {
+#   default = "bastion1"
+#   description = "Name for the bastion host and security group"
+# }

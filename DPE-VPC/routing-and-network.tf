@@ -1,15 +1,16 @@
 # Declare the data source
 data "aws_availability_zones" "available" {}
 
-/* ROUTING, GW, ROUTE TABLES ETC... for the VPC - 'ATD-DPE-VPC' */
+/* ROUTING, GW, ROUTE TABLES ETC... for the VPC - 'atd-dpe-vpc' */
 resource "aws_internet_gateway" "gw1" {
-  vpc_id = "${aws_vpc.ATD-DPE-VPC.id}"
+  vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
   tags {
     Name = "Internet GW provisioned by Terraform"
+    Purpose = "Ansible Testing"
   }
 }
 resource "aws_network_acl" "allow-all" {
-  vpc_id = "${aws_vpc.ATD-DPE-VPC.id}"
+  vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
   egress {
     protocol = "-1"
     rule_no = 2
@@ -28,12 +29,14 @@ resource "aws_network_acl" "allow-all" {
   }
   tags {
     Name = "NACL - OPEN TO ALL"
+    Purpose = "Ansible Testing"
   }
 }
 resource "aws_route_table" "public" {
-  vpc_id = "${aws_vpc.ATD-DPE-VPC.id}"
+  vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
   tags {
     Name = "Public"
+    Purpose = "Ansible Testing"
   }
   route {
     cidr_block = "0.0.0.0/0"
@@ -41,9 +44,10 @@ resource "aws_route_table" "public" {
   }
 }
 resource "aws_route_table" "private" {
-  vpc_id = "${aws_vpc.ATD-DPE-VPC.id}"
+  vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
   tags {
     Name = "Private"
+    Purpose = "Ansible Testing"
   }
   route {
     cidr_block = "0.0.0.0/0"
