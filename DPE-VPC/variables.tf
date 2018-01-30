@@ -12,6 +12,24 @@ variable "ami-ubuntu" {
   description = "Added Ubuntu AMI ID for all eu-west regions"
 }
 
+variable "ami-amazonlinux" {
+  type = "map"
+  default = {
+    "eu-west-1" = "ami-db1688a2" # Ireland
+    "eu-west-2" = "ami-403e2524" # London
+    "eu-west-3" = "ami-8ee056f3" # Paris
+  }
+}
+
+variable "ami-amazonlinux2" {
+  type = "map"
+  default = {
+    "eu-west-1" = "ami-db1688a2" # Ireland
+    "eu-west-2" = "ami-6d263d09" # London
+    "eu-west-3" = "ami-5ce55321" # Paris
+  }
+}
+
 variable "ami-bastion" {
   type = "map"
   default = {
@@ -57,7 +75,7 @@ variable "DNSZoneName" {
 }
 
 variable jumpbox_name {
-  default = "jumpbox1"
+  default = "atd-jumpbox1"
   description = "Name for the jumpbox security group and instance"
 }
 

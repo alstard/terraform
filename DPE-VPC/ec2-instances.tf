@@ -1,5 +1,5 @@
 resource "aws_instance" "atd-app1" {
-  ami = "${lookup(var.ami-ubuntu, var.region)}"
+  ami = "${lookup(var.ami-amazonlinux2, var.region)}"
   instance_type = "t2.micro"
   associate_public_ip_address = "true"
   subnet_id = "${aws_subnet.PublicAZA.id}"
@@ -11,7 +11,7 @@ resource "aws_instance" "atd-app1" {
   }
 }
 resource "aws_instance" "atd-app2" {
-  ami = "${lookup(var.ami-ubuntu, var.region)}"
+  ami = "${lookup(var.ami-amazonlinux2, var.region)}"
   instance_type = "t2.micro"
   associate_public_ip_address = "true"
   subnet_id = "${aws_subnet.PublicAZA.id}"
@@ -23,7 +23,7 @@ resource "aws_instance" "atd-app2" {
   }
 }
 resource "aws_instance" "atd-db1" {
-  ami = "${lookup(var.ami-ubuntu, var.region)}"
+  ami = "${lookup(var.ami-amazonlinux2, var.region)}"
   instance_type = "t2.micro"
   associate_public_ip_address = "false"
   subnet_id = "${aws_subnet.PrivateAZA.id}"
@@ -35,7 +35,7 @@ resource "aws_instance" "atd-db1" {
   }
 }
 resource "aws_instance" "atd-db2" {
-  ami = "${lookup(var.ami-ubuntu, var.region)}"
+  ami = "${lookup(var.ami-amazonlinux2, var.region)}"
   instance_type = "t2.micro"
   associate_public_ip_address = "false"
   subnet_id = "${aws_subnet.PrivateAZA.id}"
@@ -46,12 +46,12 @@ resource "aws_instance" "atd-db2" {
     Purpose = "Ansible Testing"
   }
 }
-resource "aws_instance" "jumpbox1" {
-  ami = "${lookup(var.ami-ubuntu, var.region)}"
+resource "aws_instance" "atd-jumpbox1" {
+  ami = "${lookup(var.ami-amazonlinux2, var.region)}"
   instance_type = "t2.micro"
   associate_public_ip_address = "true"
   subnet_id = "${aws_subnet.PublicAZA.id}"
-  vpc_security_group_ids = ["${aws_security_group.jumpbox1.id}"]
+  vpc_security_group_ids = ["${aws_security_group.atd-jumpbox1.id}"]
   key_name = "${var.KeyPairName}"
   tags {
     Name = "${var.jumpbox_name}"

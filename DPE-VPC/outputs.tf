@@ -7,11 +7,11 @@
 # }
 
 output "Jumpbox IP" {
-  value = "${aws_instance.jumpbox1.public_ip}"
+  value = "${aws_instance.atd-jumpbox1.public_ip}"
 }
 output "Jumpbox DNS Name" {
-  value = "${aws_instance.jumpbox1.public_dns}"
+  value = "${aws_instance.atd-jumpbox1.public_dns}"
 }
 output "Jumpbox User" {
-  value = "ubuntu"
+  value = "ec2-user"
 }

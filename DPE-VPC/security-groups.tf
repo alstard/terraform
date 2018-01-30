@@ -25,7 +25,8 @@ resource "aws_security_group" "atd-frontend" {
     from_port = "22"
     to_port = "22"
     protocol = "TCP"
-    cidr_blocks = ["0.0.0.0/0"]
+    #cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["${var.Subnet-Public-AzA-CIDR}"]
   }
 
   egress {
@@ -58,7 +59,8 @@ resource "aws_security_group" "atd-db" {
     from_port = "22"
     to_port = "22"
     protocol = "TCP"
-    cidr_blocks = ["0.0.0.0/0"]
+    #cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["${var.Subnet-Public-AzA-CIDR}"]
   }
   /* END DEBUG */
   
@@ -98,7 +100,7 @@ resource "aws_security_group" "atd-db" {
 #   }
 # }
 
-resource "aws_security_group" "jumpbox1" {
+resource "aws_security_group" "atd-jumpbox1" {
   name        = "${var.jumpbox_name}"
   vpc_id      = "${aws_vpc.atd-dpe-vpc.id}"
   description = "Jumpbox for ATD"
