@@ -1,3 +1,4 @@
+.vscode/
 .terraform
 *.tfstate
 *.tfstate.backup
@@ -6,3 +7,4 @@ Gemfile.lock
 .kitchen/
 ./install-test/.kitchen/*
 *.tfvars
+venv/
