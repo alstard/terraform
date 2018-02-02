@@ -23,5 +23,5 @@ resource "aws_route53_record" "database" {
   name = "atddb.${var.DNSZoneName}"
   type = "A"
   ttl = 300
-  records = ["${aws_instance.atd-db1.private_ip}"]
+  records = ["${aws_instance.atd-db.*.private_ip}"]
 }

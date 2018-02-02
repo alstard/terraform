@@ -62,3 +62,44 @@ resource "aws_nat_gateway" "PublicAZA" {
   subnet_id = "${aws_subnet.PublicAZA.id}"
   depends_on = ["aws_internet_gateway.gw1"]
 }
+
+resource "aws_elb" "atd-elb-apptier" {
+  name               = "atd-elb-apptier"
+  availability_zones = "${var.ew2-azs}"
+  security_groups    = ["${aws_security_group.atd-elb-apptier.id}"]
+
+  listener {
+    instance_port     = "${var.app_server_http_port}"
+    instance_protocol = "http"
+    lb_port           = 80
+    lb_protocol       = "http"
+  }
+
+  # listener {
+  #   instance_port      = "${var.app_server_https_port}"
+  #   instance_protocol  = "https"
+  #   lb_port            = 443
+  #   lb_protocol        = "https"
+  #   ssl_certificate_id = "${aws_iam_server_certificate.atd_iam_server_cert.id}"
+  # }
+
+  health_check {
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    timeout             = 3
+    target              = "HTTP:8080/"
+    interval            = 30
+  }
+
+  instances                   = ["${aws_instance.atd-app.*.id}"]
+  cross_zone_load_balancing   = true
+  idle_timeout                = 400
+  connection_draining         = true
+  connection_draining_timeout = 400
+
+  tags {
+    Name = "atd-elb-apptier"
+    Purpose = "Ansible Testing"
+    Owner = "atd"
+  }
+}

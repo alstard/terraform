@@ -11,8 +11,18 @@ The Terraform provisioner uses the Terraform driver to apply changes to the Terr
 The Terraform verifier uses InSpec to verify the Terraform state
   - http://www.rubydoc.info/github/newcontext-oss/kitchen-terraform/Kitchen/Verifier/Terraform
 
-
-
-
 APP1 - ssh ubuntu@ec2-35-176-99-188.eu-west-2.compute.amazonaws.com -i ~/Dropbox/aws-creds/atd-dpe-ew2-keypair.pem
 APP2 - ssh ubuntu@ec2-35-177-216-211.eu-west-2.compute.amazonaws.com -i ~/Dropbox/aws-creds/atd-dpe-ew2-keypair.pem
+
+
+EC2 Instance input parameters:
+
+  name            - String
+  instance type   - String
+  public IP       - Bool
+  Subnet ID       - TF ID
+  Security Groups - List of SG IDs
+  KeyName         - String
+  Tags            - Dict. of Key/Value pairs
+
+  
