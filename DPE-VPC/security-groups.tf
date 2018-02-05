@@ -125,35 +125,35 @@ resource "aws_security_group" "atd-jumpbox" {
   }
 }
 
-resource "aws_security_group" "atd-elb-apptier" {
-  name        = "atd-elb-apptier"
-  vpc_id      = "${aws_vpc.atd-dpe-vpc.id}"
-  description = "Security Group for ATD Load Balancer - App Tier"
+# resource "aws_security_group" "atd-elb-apptier" {
+#   name        = "atd-elb-apptier"
+#   vpc_id      = "${aws_vpc.atd-dpe-vpc.id}"
+#   description = "Security Group for ATD Load Balancer - App Tier"
 
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+#   ingress {
+#     from_port   = 80
+#     to_port     = 80
+#     protocol    = "tcp"
+#     cidr_blocks = ["0.0.0.0/0"]
+#   }
 
-  ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+#   ingress {
+#     from_port   = 443
+#     to_port     = 443
+#     protocol    = "tcp"
+#     cidr_blocks = ["0.0.0.0/0"]
+#   }
 
-  egress {
-    from_port = 0
-    to_port = 0
-    protocol = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+#   egress {
+#     from_port = 0
+#     to_port = 0
+#     protocol = "-1"
+#     cidr_blocks = ["0.0.0.0/0"]
+#   }
 
-  tags {
-    Name    = "${var.jumpbox_name}"
-    Purpose = "Ansible Testing"
-    Owner   = "atd" 
-  }
-}
+#   tags {
+#     Name    = "atd-elb-apptier"
+#     Purpose = "Ansible Testing"
+#     Owner   = "atd" 
+#   }
+# }

@@ -14,5 +14,6 @@ resource "aws_vpc" "atd-dpe-vpc" {
     Name = "atd-dpe-vpc"
     Environment = "Development"
     Purpose = "Ansible Testing"
+    Owner = "atd"
   }
 }

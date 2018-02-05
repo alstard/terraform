@@ -3,70 +3,112 @@ data "aws_availability_zones" "available" {}
 
 /* ROUTING, GW, ROUTE TABLES ETC... for the VPC - 'atd-dpe-vpc' */
 resource "aws_internet_gateway" "gw1" {
-  vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
+  vpc_id        = "${aws_vpc.atd-dpe-vpc.id}"
   tags {
-    Name = "Internet GW provisioned by Terraform"
-    Purpose = "Ansible Testing"
+    Name        = "Internet GW provisioned by Terraform"
+    Purpose     = "Ansible Testing"
   }
 }
 resource "aws_network_acl" "allow-all" {
   vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
   egress {
-    protocol = "-1"
-    rule_no = 2
-    action = "allow"
-    cidr_block = "0.0.0.0/0"
-    from_port = 0
-    to_port = 0
+    protocol    = "-1"
+    rule_no     = 2
+    action      = "allow"
+    cidr_block  = "0.0.0.0/0"
+    from_port   = 0
+    to_port     = 0
   }
   ingress {
-    protocol = "-1"
-    rule_no = 1
-    action = "allow"
-    cidr_block = "0.0.0.0/0"
-    from_port = 0
-    to_port = 0
+    protocol    = "-1"
+    rule_no     = 1
+    action      = "allow"
+    cidr_block  = "0.0.0.0/0"
+    from_port   = 0
+    to_port     = 0
   }
   tags {
-    Name = "NACL - OPEN TO ALL"
-    Purpose = "Ansible Testing"
+    Name        = "NACL - OPEN TO ALL"
+    Purpose     = "Ansible Testing"
   }
 }
-resource "aws_route_table" "public" {
-  vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
+resource "aws_route_table" "Public" {
+  vpc_id        = "${aws_vpc.atd-dpe-vpc.id}"
   tags {
-    Name = "Public"
-    Purpose = "Ansible Testing"
+    Name        = "Public"
+    Purpose     = "Ansible Testing"
   }
   route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = "${aws_internet_gateway.gw1.id}"
+    cidr_block  = "0.0.0.0/0"
+    gateway_id  = "${aws_internet_gateway.gw1.id}"
   }
 }
-resource "aws_route_table" "private" {
-  vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
-  tags {
-    Name = "Private"
-    Purpose = "Ansible Testing"
-  }
+
+resource "aws_route_table" "Private" {
+  count         = 3
+  vpc_id        = "${aws_vpc.atd-dpe-vpc.id}"
   route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = "${aws_nat_gateway.PublicAZA.id}"
+    cidr_block  = "0.0.0.0/0"
+    gateway_id  = "${aws_nat_gateway.Public.id}"
+  }
+  tags {
+    Name        = "Private-${count.index} Route Table"
+    Owner       = "atd"
+    Purpose     = "Ansible Testing"
   }
 }
+
+# resource "aws_route_table" "Private-0" {
+#   vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
+#   tags {
+#     Name = "Private 0 Route Table"
+#     Purpose = "Ansible Testing"
+#   }
+#   route {
+#     cidr_block = "0.0.0.0/0"
+#     gateway_id = "${aws_nat_gateway.Public.id}"
+#   }
+# }
+
+# resource "aws_route_table" "Private-1" {
+#   vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
+#   tags {
+#     Name = "Private 1 Route Table"
+#     Purpose = "Ansible Testing"
+#   }
+#   route {
+#     cidr_block = "0.0.0.0/0"
+#     gateway_id = "${aws_nat_gateway.Public.id}"
+#   }
+# }
+
+# resource "aws_route_table" "Private-2" {
+#   vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
+#   tags {
+#     Name = "Private 2 Route Table"
+#     Purpose = "Ansible Testing"
+#   }
+#   route {
+#     cidr_block = "0.0.0.0/0"
+#     gateway_id = "${aws_nat_gateway.Public.id}"
+#   }
+# }
+
+
 resource "aws_eip" "forNat" {
   vpc = true
 }
-resource "aws_nat_gateway" "PublicAZA" {
+resource "aws_nat_gateway" "Public" {
   allocation_id = "${aws_eip.forNat.id}"
-  subnet_id = "${aws_subnet.PublicAZA.id}"
+  subnet_id = "${aws_subnet.Public.id}"
   depends_on = ["aws_internet_gateway.gw1"]
 }
 
 resource "aws_elb" "atd-elb-apptier" {
-  name               = "atd-elb-apptier"
-  availability_zones = "${var.ew2-azs}"
-  security_groups    = ["${aws_security_group.atd-elb-apptier.id}"]
+  name                = "atd-elb-apptier"
+  #availability_zones  = "${var.ew2-azs}"
+  subnets             = ["${aws_subnet.Private.*.id}"]
+  #security_groups    = ["${aws_security_group.atd-elb-apptier.id}"]
 
   listener {
     instance_port     = "${var.app_server_http_port}"

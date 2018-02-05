@@ -1,29 +1,34 @@
-resource "aws_subnet" "PublicAZA" {
-  vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
-  cidr_block = "${var.Subnet-Public-AzA-CIDR}"
+resource "aws_subnet" "Public" {
+  count             = 1
+  vpc_id            = "${aws_vpc.atd-dpe-vpc.id}"
+  cidr_block        = "${lookup(var.public_cidr_blocks, count.index)}"
+  availability_zone = "${lookup(var.availability_zones, count.index)}"
   tags {
-    Name = "PublicAZA"
-    Purpose = "Ansible Testing"
+    Name            = "Public Subnet"
+    Purpose         = "Ansible Testing"
+    Owner           = "atd"
   }
-  availability_zone = "${data.aws_availability_zones.available.names[0]}"
 }
 
-resource "aws_route_table_association" "PublicAZA" {
-  subnet_id = "${aws_subnet.PublicAZA.id}"
-  route_table_id = "${aws_route_table.public.id}"
+resource "aws_route_table_association" "Public" {
+  subnet_id         = "${aws_subnet.Public.id}"
+  route_table_id    = "${aws_route_table.Public.id}"
 }
 
-resource "aws_subnet" "PrivateAZA" {
-  vpc_id = "${aws_vpc.atd-dpe-vpc.id}"
-  cidr_block = "${var.Subnet-Private-AzA-CIDR}"
+resource "aws_subnet" "Private" {
+  count             = 3
+  vpc_id            = "${aws_vpc.atd-dpe-vpc.id}"
+  cidr_block        = "${lookup(var.private_cidr_blocks, count.index)}"
+  availability_zone = "${lookup(var.availability_zones, count.index)}"
   tags {
-    Name = "PrivateAZA"
-    Purpose = "Ansible Testing"
+    Purpose         = "Ansible Testing"
+    Owner           = "atd"
+    Name            = "Private-${count.index} Subnet"
   }
-  availability_zone = "${data.aws_availability_zones.available.names[0]}"
 }
 
-resource "aws_route_table_association" "PrivateAZA" {
-  subnet_id = "${aws_subnet.PrivateAZA.id}"
-  route_table_id = "${aws_route_table.private.id}"
+resource "aws_route_table_association" "Private" {
+  count             = 3
+  subnet_id         = "${element(aws_subnet.Private.*.id, count.index)}"
+  route_table_id    = "${element(aws_route_table.Private.*.id, count.index)}"
 }

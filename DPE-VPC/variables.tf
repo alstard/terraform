@@ -2,12 +2,6 @@ variable "region" {
   default = "eu-west-2"
 }
 
-variable "ew2-azs" {
-  description = "Run the EC2 Instances in these Availability Zones"
-  type = "list"
-  default = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
-}
-
 variable "ami-ubuntu" {
   type = "map"
   default = {
@@ -63,11 +57,6 @@ variable jumpbox_name {
   description = "Name for the jumpbox security group and instance"
 }
 
-# variable bastion_name {
-#   default = "bastion1"
-#   description = "Name for the bastion host and security group"
-# }
-
 variable "aws_access_key" {
   default = ""
   description = "AWS DPE Access Key"
@@ -83,14 +72,53 @@ variable "VPC-fullcidr" {
   description = "Full CIDR Block of the VPC"
 }
 
-variable "Subnet-Public-AzA-CIDR" {
-  default = "172.17.0.0/24"
-  description = "CIDR Block of the Public Subnet"
+variable "availability_zones" {
+  type = "map"
+  default = {
+    "0" = "eu-west-2a"
+    "1" = "eu-west-2b"
+    "2" = "eu-west-2c"
+  }
+  description = "Availability Zone names for the London region"
 }
 
-variable "Subnet-Private-AzA-CIDR" {
+variable "private_cidr_blocks" {
+  type = "map"
+  default = {
+    "0" = "172.17.1.0/24"
+    "1" = "172.17.2.0/24"
+    "2" = "172.17.3.0/24"
+  }
+  description = "CIDR blocks of the Public Subnet"
+}
+
+variable "public_cidr_blocks" {
+  type = "map"
+  default = {
+    "0" = "172.17.0.0/24"
+  }
+  description = "CIDR blocks of the Public Subnet"
+}
+
+variable "ew2-azs" {
+  description = "Run the EC2 Instances in these Availability Zones"
+  type = "list"
+  default = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
+}
+
+variable "Subnet-Public-AzA-CIDR" {
+  default = "172.17.0.0/24"
+  description = "CIDR blocks of the Public Subnet"
+}
+
+variable "Subnet-Private-1-AzA-CIDR" {
   default = "172.17.1.0/24"
-  description = "CIDR Block of the Private Subnet"
+  description = "CIDR blocks of the Private Subnet #1"
+}
+
+variable "Subnet-Private-2-AzA-CIDR" {
+  default = "172.17.2.0/24"
+  description = "CIDR Block of the Private Subnet #2"
 }
 
 variable "app_server_http_port" {
@@ -103,7 +131,12 @@ variable "app_server_https_port" {
   description = "The port the instances will use for HTTPS requests"
 }
 
-# variable "" {
+# variable "URI" {
 #   default     = "arn:aws:iam::123456789012:server-certificate/certName"
 #   description = "The URI of the SSL Certificate to use for HTTPS connections"
+# }
+
+# variable bastion_name {
+#   default = "bastion1"
+#   description = "Name for the bastion host and security group"
 # }
