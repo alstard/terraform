@@ -1,0 +1,36 @@
+resource "tls_private_key" "atd_tls_private_key" {
+  algorithm = "ECDSA"
+}
+
+resource "tls_self_signed_cert" "atd_tls_cert" {
+  key_algorithm   = "${tls_private_key.atd_tls_private_key.algorithm}"
+  private_key_pem = "${tls_private_key.atd_tls_private_key.private_key_pem}"
+
+  # Certificate expires after 12 hours.
+  validity_period_hours = 72
+
+  # Generate a new certificate if Terraform is run within three
+  # hours of the certificate's expiration time.
+  early_renewal_hours = 3
+
+  # Reasonable set of uses for a server SSL certificate.
+  allowed_uses = [
+      "key_encipherment",
+      "digital_signature",
+      "server_auth",
+  ]
+
+  dns_names = ["atddpe.local"]
+
+  subject {
+      common_name  = "atddpe.local"
+      organization = "ATD Development for Capgemini"
+  }
+}
+
+# For example, this can be used to populate an AWS IAM server certificate.
+resource "aws_iam_server_certificate" "atd_iam_server_cert" {
+  name             = "atd_iam_server_cert"
+  certificate_body = "${tls_self_signed_cert.atd_tls_cert.cert_pem}"
+  private_key      = "${tls_private_key.atd_tls_cert.private_key_pem}"
+}

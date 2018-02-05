@@ -1,3 +1,10 @@
+.vscode/
 .terraform
 *.tfstate
 *.tfstate.backup
+.tfPSDDOvars
+Gemfile.lock
+.kitchen/
+./install-test/.kitchen/*
+*.tfvars
+venv/

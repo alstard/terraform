@@ -1,0 +1,29 @@
+---
+driver:
+  name: terraform
+  variable_file:
+    - testing.tfvars
+
+provisioner:
+  name: terraform
+
+platforms:
+  - name: ubuntu
+
+transport:
+  name: ssh
+  ssh_key: ~/Dropbox/aws-creds/atd-dpe-keypair.pem
+  username: ubuntu
+
+verifier:
+  name: terraform
+  format: doc
+  groups:
+    - name: default
+      controls:
+        - operating_system
+      hostname: public_dns
+      username: ubuntu
+
+suites:
+  - name: default
