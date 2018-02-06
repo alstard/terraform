@@ -10,8 +10,8 @@ resource "aws_instance" "atd-app" {
   key_name                    = "${var.KeyPairName}"
   tags {
     Name                      = "atd-app-${count.index}"
-    Purpose                   = "Ansible Testing"
-    Owner                     = "atd"
+    Purpose                   = "${var.purpose}"
+    Owner                     = "${var.owner}"
   }
 }
 
@@ -26,8 +26,8 @@ resource "aws_instance" "atd-db" {
   key_name                    = "${var.KeyPairName}"
   tags {
     Name                      = "atd-db-${count.index}"
-    Purpose                   = "Ansible Testing"
-    Owner                     = "atd"
+    Purpose                   = "${var.purpose}"
+    Owner                     = "${var.owner}"
   }
 }
 
@@ -41,7 +41,7 @@ resource "aws_instance" "atd-jumpbox" {
   key_name                    = "${var.KeyPairName}"
   tags {
     Name                      = "${var.jumpbox_name}-${count.index}"
-    Purpose                   = "Ansible Testing"
-    Owner                     = "atd"
+    Purpose                   = "${var.purpose}"
+    Owner                     = "${var.owner}"
   }
 }

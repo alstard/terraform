@@ -5,8 +5,8 @@ resource "aws_subnet" "Public" {
   availability_zone = "${lookup(var.availability_zones, count.index)}"
   tags {
     Name            = "Public Subnet"
-    Purpose         = "Ansible Testing"
-    Owner           = "atd"
+    Purpose         = "${var.purpose}"
+    Owner           = "${var.owner}"
   }
 }
 
@@ -21,9 +21,9 @@ resource "aws_subnet" "Private" {
   cidr_block        = "${lookup(var.private_cidr_blocks, count.index)}"
   availability_zone = "${lookup(var.availability_zones, count.index)}"
   tags {
-    Purpose         = "Ansible Testing"
-    Owner           = "atd"
     Name            = "Private-${count.index} Subnet"
+    Purpose         = "${var.purpose}"
+    Owner           = "${var.owner}"
   }
 }
 
